@@ -3,7 +3,10 @@ project(app)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTKMM gtkmm-4.0) # pacman -S mingw-w64-x86_64-gtkmm4 # in MSYS+MINGW
+# GTKmm 4 (GTK for C++, C++ binding/adaptation)
+# sudo apt install libgtkmm-4.0-dev # in Debian GNU/Linux
+# pacman -S mingw-w64-x86_64-gtkmm4 # in MSYS+MINGW
+pkg_check_modules(GTKMM gtkmm-4.0)
 
 include_directories(${GTKMM_INCLUDE_DIRS})
 link_directories(${GTKMM_LIBRARY_DIRS})
