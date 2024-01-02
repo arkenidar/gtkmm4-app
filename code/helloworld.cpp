@@ -16,6 +16,7 @@
 
 #include "helloworld.h"
 #include <iostream>
+#include <gtkmm/box.h>
 
 HelloWorld::HelloWorld()
         : m_button("Hello World")   // creates a new button with label "Hello World".
@@ -28,8 +29,10 @@ HelloWorld::HelloWorld()
     m_button.signal_clicked().connect(sigc::mem_fun(*this,
                                                     &HelloWorld::on_button_clicked));
 
-    // This packs the button into the Window (a container).
-    set_child(m_button);
+    auto box = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL, 5);
+    set_child(*box);
+    box->append(m_entry);
+    box->append(m_button);
 }
 
 HelloWorld::~HelloWorld() {
@@ -37,4 +40,5 @@ HelloWorld::~HelloWorld() {
 
 void HelloWorld::on_button_clicked() {
     std::cout << "Hello World" << std::endl;
+    m_entry.set_text(m_entry.get_text()+" text!!!");
 }

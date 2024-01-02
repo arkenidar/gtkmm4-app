@@ -19,6 +19,7 @@
 
 #include <gtkmm/button.h>
 #include <gtkmm/window.h>
+#include <gtkmm/entry.h>
 
 class HelloWorld : public Gtk::Window {
 
@@ -33,6 +34,7 @@ protected:
 
     //Member widgets:
     Gtk::Button m_button;
+    Gtk::Entry m_entry;
 };
 
 #endif // GTKMM_EXAMPLE_HELLOWORLD_H
